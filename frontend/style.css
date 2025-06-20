@@ -1,0 +1,201 @@
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  font-family: 'Orbitron', sans-serif;
+  overflow: hidden;
+  color: white;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.screen-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#landing-screen {
+  background-color: rgba(0, 0, 0, 0.8);
+  text-shadow: 0 0 20px #ff0040, 0 0 30px #ff0040;
+}
+
+#game-screen {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.simon-title {
+  font-size: 5rem;
+  letter-spacing: 2px;
+  color: #fff;
+  text-transform: uppercase;
+  position: relative;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+.simon-title::before {
+  content: "Simon";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: rgba(255, 0, 0, 0.3);
+  z-index: -1;
+  transform: scale(1.1);
+}
+
+.simon-board {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  border-radius: 15%;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.color-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.color-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+}
+
+.color-btn:active,
+.color-btn.active {
+  opacity: 1;
+  transform: scale(1.15);
+  box-shadow: 0 0 30px white;
+}
+
+.red { background-color: #ff4d4d; box-shadow: 0 0 10px #ff4d4d; }
+.green { background-color: #00e676; box-shadow: 0 0 10px #00e676; }
+.blue { background-color: #448aff; box-shadow: 0 0 10px #448aff; }
+.yellow { background-color: #ffeb3b; box-shadow: 0 0 10px #ffeb3b; }
+
+#play-btn {
+  font-size: 1.5rem;
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  transition: 0.3s;
+}
+
+#play-btn:hover {
+  background-color: #ff0040;
+  color: #fff;
+  border-color: #ff0040;
+  transform: scale(1.1);
+}
+
+.scoreboard {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+#exit-btn {
+  font-size: 1.2rem;
+  padding: 10px 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #ff0040;
+  transition: 0.3s;
+}
+
+#exit-btn:hover {
+  background-color: #ff0040;
+  box-shadow: 0 0 25px #ff0040;
+}
+/* Position the leaderboard on the right side */
+#leaderboard-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7); /* Add some background for better visibility */
+  padding: 15px;
+  border-radius: 8px;
+  width: 200px; /* Adjust the width as per your need */
+  height: auto;
+  color: white;
+}
+
+#leaderboard-btn {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
+.simon-board {
+  width: 400px; /* Increased size for the Simon game */
+  height: 400px; /* Increased size for the Simon game */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  border-radius: 10%;
+  position: relative;
+}
+
+/* Adjust the color buttons' size */
+.color-btn {
+  width: 100%;
+  height: 100%;
+  border-radius: 20%;
+  opacity: 0.8;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.color-btn:active,
+.color-btn.active {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px white;
+}
+#start-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+#start-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+#start-btn:hover {
+  background-color: #45a049;
+}

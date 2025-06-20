@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard - Simon Game</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .leaderboard-container {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    ul#leaderboard {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul#leaderboard li {
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 18px;
+      color: #444;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <div class="leaderboard-container">
+    <h1>Top Players</h1>
+    <ul id="leaderboard">
+      <!-- JS will fill this in -->
+    </ul>
+    <a class="back-btn" href="index.html#game-screen">← Back to Game</a>
+
+  </div>
+
+  <script>
+    fetch('http://localhost:3000/api/scores')
+      .then(res => res.json())
+      .then(scores => {
+        const leaderboard = document.getElementById('leaderboard');
+        leaderboard.innerHTML = '';
+        scores.slice(0, 5).forEach((entry, index) => {
+          const li = document.createElement('li');
+          li.textContent = `${index + 1}. ${entry.player_name} - ${entry.score}`;
+          leaderboard.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById('leaderboard').innerHTML = '<li>Error loading leaderboard</li>';
+        console.error("❌ Error loading leaderboard:", err);
+      });
+  </script>
+</body>
+</html>
